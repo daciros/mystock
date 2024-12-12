@@ -1,57 +1,54 @@
-const { Reserva } = require('../models');
+import { Reservas } from '../models/index.js';
 
-const reservaController = {
-  getAll: async (req, res) => {
+
+  export const getAll = async (req, res) => {
     try {
-      const reservas = await Reserva.findAll();
+      const reservas = await Reservas.findAll();
       res.status(200).json(reservas);
     } catch (error) {
       res.status(500).json({ error: 'Error al obtener reservas' });
     }
-  },
+  };
 
-  create: async (req, res) => {
+  export const create = async (req, res) => {
     try {
-      const nuevaReserva = await Reserva.create(req.body);
+      const nuevaReserva = await Reservas.create(req.body);
       res.status(201).json(nuevaReserva);
     } catch (error) {
       res.status(400).json({ error: 'Error al crear reserva' });
     }
-  },
+  };
 
-  getById: async (req, res) => {
+  export const getById = async (req, res) => {
     try {
-      const reserva = await Reserva.findByPk(req.params.id);
-      if (!reserva) return res.status(404).json({ error: 'Reserva no encontrada' });
+      const reserva = await Reservas.findByPk(req.params.id);
+      if (!reserva) return res.status(404).json({ error: 'Reservas no encontrada' });
       res.status(200).json(reserva);
     } catch (error) {
       res.status(500).json({ error: 'Error al obtener reserva' });
     }
-  },
+  };
 
-  update: async (req, res) => {
+  export const update = async (req, res) => {
     try {
-      const reserva = await Reserva.findByPk(req.params.id);
-      if (!reserva) return res.status(404).json({ error: 'Reserva no encontrada' });
+      const reserva = await Reservas.findByPk(req.params.id);
+      if (!reserva) return res.status(404).json({ error: 'Reservas no encontrada' });
 
       await reserva.update(req.body);
       res.status(200).json(reserva);
     } catch (error) {
       res.status(400).json({ error: 'Error al actualizar reserva' });
     }
-  },
+  };
 
-  delete: async (req, res) => {
+  export const deleteId = async (req, res) => {
     try {
-      const reserva = await Reserva.findByPk(req.params.id);
-      if (!reserva) return res.status(404).json({ error: 'Reserva no encontrada' });
+      const reserva = await Reservas.findByPk(req.params.id);
+      if (!reserva) return res.status(404).json({ error: 'Reservas no encontrada' });
 
       await reserva.destroy();
       res.status(204).send();
     } catch (error) {
       res.status(500).json({ error: 'Error al eliminar reserva' });
     }
-  },
-};
-
-module.exports = reservaController;
+  };

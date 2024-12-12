@@ -1,0 +1,23 @@
+{
+  "name": "hotelback",
+  "version": "1.0.0",
+  "description": "backend api hoteles reservaciones",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "concurrently \"cd HotelBack && npm start\" \"cd HotelFront && npm start\"",
+    "dev": "cd HotelBack && npm run dev",
+    "build": "tsc",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alejandro Diaz",
+  "license": "ISC",
+  "dependencies": {
+    "hotelback": "file:"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

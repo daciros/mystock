@@ -1,6 +1,7 @@
-const { DataTypes } = require('sequelize');
+import { DataTypes } from "sequelize";
 
-module.exports = (sequelize) => {
+
+export default (sequelize) => {
   const Habitaciones = sequelize.define('Habitaciones', {
     numero: { type: DataTypes.STRING, allowNull: false },
     tamano: { type: DataTypes.FLOAT, allowNull: false },

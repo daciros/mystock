@@ -1,6 +1,6 @@
-const { DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
 
-module.exports = (sequelize) => {
+export default (sequelize) => {
   const Reservas = sequelize.define('Reservas', {
     fecha_inicio: { type: DataTypes.DATEONLY, allowNull: false },
     fecha_fin: { type: DataTypes.DATEONLY, allowNull: false },

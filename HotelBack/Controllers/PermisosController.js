@@ -1,4 +1,4 @@
-const { Permisos } = require('../models');
+import { Permisos } from '../models/index.js';
 
 const permisoController = {
   getAll: async (req, res) => {
@@ -41,7 +41,7 @@ const permisoController = {
     }
   },
 
-  delete: async (req, res) => {
+  deleteId: async (req, res) => {
     try {
       const permiso = await Permisos.findByPk(req.params.id);
       if (!permiso) return res.status(404).json({ error: 'Permisos no encontrada' });
@@ -54,4 +54,4 @@ const permisoController = {
   },
 };
 
-module.exports = permisoController;
+export default permisoController;
