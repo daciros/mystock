@@ -3,6 +3,7 @@
 # dependencies
 /HotelBack/node_modules
 /hotelfront/node_modules
+./node_modules
 /.pnp
 .pnp.js
 
